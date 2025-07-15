@@ -74,7 +74,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://ghproxy.homeboyc.cn/https://raw.githubusercontent.com/bobo334/3x-ui/main/install.sh)
+    bash <(curl -Ls https://ghproxy.net/https://raw.githubusercontent.com/MHSanaei/3x-ui/main/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -93,7 +93,7 @@ update() {
         fi
         return 0
     fi
-    bash <(curl -Ls https://ghproxy.homeboyc.cn/https://raw.githubusercontent.com/bobo334/3x-ui/main/install.sh)
+    bash <(curl -Ls https://ghproxy.net/https://raw.githubusercontent.com/MHSanaei/3x-ui/main/install.sh)
     if [[ $? == 0 ]]; then
         LOGI "Update is complete, Panel has automatically restarted "
         before_show_menu
@@ -111,7 +111,7 @@ update_menu() {
         return 0
     fi
 
-    wget -O /usr/bin/x-ui https://ghproxy.homeboyc.cn/https://raw.githubusercontent.com/bobo334/3x-ui/main/x-ui.sh
+    wget -O /usr/bin/x-ui https://ghproxy.net/https://raw.githubusercontent.com/MHSanaei/3x-ui/main/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
 
@@ -133,7 +133,7 @@ legacy_version() {
         exit 1
     fi
     # Use the entered panel version in the download link
-    install_command="bash <(curl -Ls \"https://ghproxy.homeboyc.cn/https://raw.githubusercontent.com/bobo334/3x-ui/v$tag_version/install.sh\") v$tag_version"
+    install_command="bash <(curl -Ls \"https://ghproxy.net/https://raw.githubusercontent.com/mhsanaei/3x-ui/v$tag_version/install.sh\") v$tag_version"
 
     echo "Downloading and installing panel version $tag_version..."
     eval $install_command
@@ -164,7 +164,7 @@ uninstall() {
     echo ""
     echo -e "Uninstalled Successfully.\n"
     echo "If you need to install this panel again, you can use below command:"
-    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/bobo334/3x-ui/master/install.sh)${plain}"
+    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh)${plain}"
     echo ""
     # Trap the SIGTERM signal
     trap delete_script SIGTERM
@@ -517,7 +517,7 @@ enable_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/x-ui -N https://ghproxy.homeboyc.cn/https://github.com/bobo334/3x-ui/raw/main/x-ui.sh
+    wget -O /usr/bin/x-ui -N https://ghproxy.net/https://github.com/MHSanaei/3x-ui/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         LOGE "Failed to download script, Please check whether the machine can connect Github"
@@ -831,24 +831,24 @@ update_geo() {
     1)
         systemctl stop x-ui
         rm -f geoip.dat geosite.dat
-        wget -N https://ghproxy.homeboyc.cn/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
-        wget -N https://ghproxy.homeboyc.cn/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+        wget -N https://ghproxy.net/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+        wget -N https://ghproxy.net/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
         echo -e "${green}Loyalsoldier datasets have been updated successfully!${plain}"
         restart
         ;;
     2)
         systemctl stop x-ui
         rm -f geoip_IR.dat geosite_IR.dat
-        wget -O geoip_IR.dat -N https://ghproxy.homeboyc.cn/https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
-        wget -O geosite_IR.dat -N https://ghproxy.homeboyc.cn/https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
+        wget -O geoip_IR.dat -N https://ghproxy.net/https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
+        wget -O geosite_IR.dat -N https://ghproxy.net/https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
         echo -e "${green}chocolate4u datasets have been updated successfully!${plain}"
         restart
         ;;
     3)
         systemctl stop x-ui
         rm -f geoip_RU.dat geosite_RU.dat
-        wget -O geoip_RU.dat -N https://ghproxy.homeboyc.cn/https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geoip.dat
-        wget -O geosite_RU.dat -N https://ghproxy.homeboyc.cn/https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geosite.dat
+        wget -O geoip_RU.dat -N https://ghproxy.net/https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geoip.dat
+        wget -O geosite_RU.dat -N https://ghproxy.net/https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geosite.dat
         echo -e "${green}runetfreedom datasets have been updated successfully!${plain}"
         restart
         ;;
@@ -1725,7 +1725,7 @@ show_usage() {
 │  ${blue}x-ui enable${plain}       - Enable Autostart on OS Startup   │
 │  ${blue}x-ui disable${plain}      -
 │  ${blue}x-ui log${plain}          - Check logs                       │
-│  ${blue}x-ui banlog${plain}       - Check Fail2ban ban logs          │
+│  ${blue}x-ui banlog${plain}       - Check
 │  ${blue}x-ui update${plain}       - Update                           │
 │  ${blue}x-ui legacy${plain}       - legacy version                   │
 │  ${blue}x-ui install${plain}      - Install                          │
